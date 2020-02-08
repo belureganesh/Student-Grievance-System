@@ -1,0 +1,31 @@
+int min(int u,int v,int w=INT_MAX,int x = INT_MAX);
+int main(){
+
+    int minimum=0;
+    minimum =min(4,7,9);
+    minimum =min(3,5);//MIN(3,1,0);
+}
+
+int min(int u,int v,int w,int x)
+{
+    if(u < v && u < w && u < x)
+    return u;
+    else if(v < u && v < w && v < x)
+    return v;
+     else if(w < u && w < v && w < x)
+    return w;  
+    else
+    return x;
+}
+
+/*
+when a specific argument is passed to the optoional parameter then the parameter takes that value else it takes the default value.
+
+optional parameters must be specified after mandatory parameters i.e they cannot appear randomly in function signature.
+
+
+if some specific value is to be given to far optional parameter then all the intermediate optional parameter must be given the value
+could be default value.
+
+
+*/

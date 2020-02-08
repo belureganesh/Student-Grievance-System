@@ -1,0 +1,102 @@
+
+<body ng-controller="admin_assign_ctrl">
+<div class="w3-container ">
+    <div class="w3-card-4 w3-light-green ">
+        <h1 style="color:teal;margin-left: 50px;font-size:25px">Instruction</h1>
+        <hr>
+        <div class="w3-panel   w3-leftbar w3-border-amber">
+
+            <h4><span style="font-size:30px;color:blue;size:50px;">&#10147;</span>&nbsp &nbsp You can search student grievance on below search box..</h4>
+
+
+            <h4><span style="font-size:30px;color:blue;size:50px;">&#10147;</span>&nbsp &nbsp You can priorties the grievance According to date and time..</h4>
+
+
+            <h4><span style="font-size:30px;color:blue;size:50px;">&#10147;</span>&nbsp &nbsp You can assign the grievance to respective cell member ..</h4>
+
+        </div>
+
+    </div>
+</div>
+<div class="w3-container">
+<div class="w3-container w3-teal w3-padding">
+    <input placeholder="search your grievance...."
+           ng-model="search1" class="w3-input  w3-border w3-sand"
+           style="width:50%" name="first" type="text">
+</div>
+<table class="w3-table-all">
+
+    <thead>
+    <tr class=" w3-text-deep-orange" style="background-color:#FFB6C1;color:orange;font-size: 17px;">
+        <th>Grievance ID</th>
+        <th>Type</th>
+        <th>Date</th>
+        <th>grievance related to</th>
+        <th>From Whom</th>
+        <th>To Whom</th>
+    </tr>
+    </thead>
+    <tr ng-repeat="s1 in admin_assign_view_table_data|filter:search1">
+        <td><button ng-click="assign_gri_view(s1.grievance_details_id)"
+                    onclick="document.getElementById('id01').style.display='block'"
+                    style="width:80%" class="w3-button w3-pink w3-hover-amber w3-wide">
+            {{s1.grievance_details_id}}</button>
+        </td>
+        <td>{{s1.grievance_type}}</td>
+        <td>{{s1.grievance_date}}</td>
+        <td>{{s1.grievance_related_to}}</td>
+        <td>{{s1.std_name}}</td>
+        <td>{{s1.cell_member_name}}</td>
+    </tr>
+</table>
+</div>
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+        <header class="w3-container  w3-teal" >
+        <span onclick="document.getElementById('id01').style.display='none'"
+              class="w3-button w3-display-topright">&times;</span>
+            <h2 class="w3-center" style="color:#ff6600">Grievance Detail </h2>
+        </header>
+        <div class="w3-container">
+            <fieldset>
+                <legend class="w3-text-red">Student Grievance</legend>
+                <table class="w3-table w3-border w3-border-amber">
+                    <thead class="w3-pale-yellow">
+                    <tr>
+                        <th>Grievance By</th>
+                        <th>Grievance Related To</th>
+                        <th>Grievance To</th>
+                        <th>Grievance Type</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <td>{{admin_assign_gr_view_data[0].std_name}}</td>
+                    <td>{{admin_assign_gr_view_data[0].grievance_related_to}}</td>
+                    <td>{{admin_assign_gr_view_data[0].cell_member_name}}</td>
+                    <td>{{admin_assign_gr_view_data[0].grievance_type}}</td>
+                    </tbody>
+                </table>
+
+                <fieldset>
+                    <legend class="w3-text-red">Grievance description</legend>
+                    <span><h4 class="w3-text-brown">{{admin_assign_gr_view_data[0].grievance_desc}}</h4></span>
+                </fieldset>
+                <fieldset>
+                    <legend class="w3-text-red">Uploaded Document</legend>
+                    <label class="w3-text-brown"><b>Uploaded document is...</b></label>
+                </fieldset>
+                <br>
+                <br>
+                <div class="w3-bar">
+                    <button ng-click="assign()" class="w3-button w3-green">Confirm</button>
+                    <button ng-click="reject()" class="w3-button w3-teal">Remove</button>
+                </div>
+
+            </fieldset>
+            <br>
+
+
+        </div>
+    </div>
+</div>
+</body>

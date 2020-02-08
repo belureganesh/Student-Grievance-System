@@ -1,0 +1,35 @@
+.outer {
+    background-color:lightgoldenrodyellow;
+    width:180px; /* You can define it by % also */
+    height:180px; /* You can define it by % also */
+    position:relative;
+    border:1px solid black;
+    border-radius: 50%;
+}
+
+.inner {
+    background-color:coral;
+    top: 16%; left:25%; /* of the container */
+    width:50%; /* of the container */
+    height:50%; /* of the container */
+    position: relative;
+    border:1px solid black;
+    border-radius: 50%;
+}
+.x{
+    position:absolute;
+    font-size: 25px;
+    top:40%;
+    left:30%;
+    color:teal;
+}
+.name
+{
+
+    color:maroon;
+    font-size: 20px;
+    text-align: center;
+    top:10%;
+    left:4%;
+    position:relative;
+}

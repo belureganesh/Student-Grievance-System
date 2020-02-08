@@ -1,0 +1,62 @@
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    position:relative;
+    background-color:teal;
+}
+.row.content {height: 650px}
+
+.sidenav {
+    padding-top: 20px;
+    background-color: teal;
+    height: 100%;
+
+}
+.sidenav a{
+font-size:18px;
+    text-decoration: none;
+}
+.sidenav a:hover
+{
+    background-color: 	#FFB6C1;
+}
+
+
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: 100%;
+        overflow: hidden;
+        padding: 15px;
+        text-align:center;
+        display:block;
+        color:white;
+        bottom-border:1px solid grey;
+    }
+    .row.content {height:auto;}
+}
+.sidebar a
+{
+    border-color:orange;
+    color:#ff6600;
+    padding:15px;
+    border-style:solid;
+}
+footer
+{
+    padding:10px;
+    font-size: 15px;
+}
+.nav li a {
+    text-align:center;
+    display:block;
+    color:white;
+    padding:10px;
+    bottom-border:1px solid grey;
+}
+a
+{   display:block;
+    color:white;
+    padding:10px;
+    bottom-border:1px solid grey;
+}
+

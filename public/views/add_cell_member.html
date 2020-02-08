@@ -1,0 +1,54 @@
+
+<div class="w3-card-4" ng-controller="add_cell_member" style="width:85%; margin:10px 95px 13px">
+    <header class="w3-container w3-teal">
+        <h2 class="w3-center">Add Cell Member</h2>
+    </header>
+        <div class="w3-container">
+            <form action="" name="form" method="" id="register-form">
+            <p>
+                <label class="w3-text-brown"><b>Cell Member Id:</b></label>
+                <input class="w3-input w3-border w3-sand" ng-model="cell_id" name="cell_id" type="number" ng-required="true">
+            </p>
+            <p>
+                <label class="w3-text-brown"><b>Name:</b></label>
+                <input class="w3-input w3-border w3-sand" name="cell_name" ng-model="cell_name" type="text" required>
+            </p>
+            <p>
+                <label class="w3-text-brown"><b>Designation:</b></label>
+                <select class="w3-select w3-border w3-sand" name="desig_id" ng-model="desig_id" required>
+                    <option value="">--select Designation--</option>
+                    <option ng-repeat="x in view_of_dept[1]" ng-value="x.desig_id">{{x.desig_name}}</option>
+
+                </select>
+
+            </p>
+            <p>
+            <label class="w3-text-brown"><b>Department:</b></label>
+                <select class="w3-select w3-border w3-sand" name="dept_id" ng-model="dept_id" required>
+                    <option value="">--select Department--</option>
+                    <option ng-repeat="x in view_of_dept[0]" ng-value="x.dept_id">{{x.dept_name}}</option>
+
+                </select>
+
+            </p>
+            <p>
+                <label class="w3-text-brown"><b>Contact:</b></label>
+                <input class="w3-input w3-border w3-sand" ng-model="contact" name="contact" type="tel" required>
+            </p>
+
+            <p>
+                <label class="w3-text-brown"><b>E-mail:</b></label>
+                <input class="w3-input w3-border w3-sand" name="E_mail" ng-model="E_mail" type="email" required>
+            </p>
+
+            <p>
+                <label class="w3-text-brown"><b>Password:</b></label>
+                <input class="w3-input w3-border w3-sand" name="pass" ng-model="pass" type="password" required>
+            </p>
+            <p>
+                <input type="submit" class="w3-btn w3-green w3-large" ng-disabled="form.$invalid" ng-click="submit_it()">
+                <button class="w3-btn w3-teal w3-large" ng-click="reset_it()">Reset</button>
+            </p>
+            </form>
+        </div>
+</div>

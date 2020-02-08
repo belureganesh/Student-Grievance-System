@@ -1,0 +1,89 @@
+
+<br>
+<div class="w3-card-4" style="width:70%; margin:20px 145px 10px">
+    <div class="w3-container w3-teal">
+        <h2 class="w3-center">Edit Your profile</h2>
+    </div>
+    <form class="w3-container">
+        <fieldset style="background-color: #b3ffff;margin:2%">
+            <legend class="w3-text-deep-orange w3-xlarge"><button class="w3-block w3-orange">Your Profile is</button></legend>
+            <label class="w3-text-brown"><b>ID:</b></label>{{stu_id}}
+            <br>
+            <label class="w3-text-brown"><b>Name:</b></label>{{stu_name}}
+            <br>
+            <label class="w3-text-brown"><b>Date-of-birth:</b></label>{{B_date | date:"mediumDate"}}
+            <br>
+            <label class="w3-text-brown"><b>Department:</b></label>{{dept_name}}
+            <br>
+            <label class="w3-text-brown"><b>Year:</b></label>{{year}}
+            <br>
+            <label class="w3-text-brown"><b>Mobile no:</b></label>{{mob_no}}
+            <br>
+            <label class="w3-text-brown"><b>Email:</b></label>{{E_mail}}
+            <br>
+            <label class="w3-text-brown"><b>Password:</b></label>{{pass}}
+            <br>
+            <button onclick="document.getElementById('id01').style.display='block'"
+                    class="w3-button w3-xlarge w3-brown w3-hover-teal">Edit</button>
+            <br>
+        </fieldset>
+        <br><br>
+
+
+    </form>
+</div>
+<div id="id01" class="w3-modal" >
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+        <header class="w3-container  w3-teal">
+        <span onclick="document.getElementById('id01').style.display='none'"
+              class="w3-button w3-display-topright">&times;</span>
+            <h2 class="w3-center">Edit Your Profile </h2>
+        </header>
+        <div class="w3-container">
+            <p>
+                <label class="w3-text-brown"><b>ID:</b></label>
+                <input class="w3-input w3-border w3-sand" name="stu_id" ng-model="stu_id" type="number">
+            </p>
+            <p>
+                <label class="w3-text-brown"><b>Name:</b></label>
+                <input class="w3-input w3-border w3-sand" name="stu_name" ng-model="stu_name" type="text">
+            </p>
+            <p>
+                <label class="w3-text-brown"><b>Birth-Date:</b></label>
+                <input class="w3-input w3-border w3-sand" name="B_date" ng-model="B_date" type="date">
+            </p>
+            <p>
+                <label class="w3-text-brown"><b>Department:</b></label>
+                <select class="w3-select w3-border w3-sand" name="dept_id" ng-model="dept_id">
+                    <option value="">--select branch--</option>
+                    <option ng-repeat="x in stu_profile[1]" ng-value="x.dept_id"  ng-selected="x.dept_id == dept_id">{{x.dept_name}}</option>
+
+                </select>
+            </p>
+
+            <p>
+                <label class="w3-text-brown"><b>Year:</b></label>
+                <input class="w3-input w3-border w3-sand" name="year" ng-model="year" type="text">
+            </p>
+
+            <p>
+                <label class="w3-text-brown"><b>Mobile no:</b></label>
+                <input class="w3-input w3-border w3-sand" name="mob_no" ng-model="mob_no" type="tel">
+            </p>
+
+            <p>
+                <label class="w3-text-brown"><b>E-mail:</b></label>
+                <input class="w3-input w3-border w3-sand" name="E_mail" ng-model="E_mail" type="email">
+            </p>
+
+            <p>
+                <label class="w3-text-brown"><b>Password:</b></label>
+                <input class="w3-input w3-border w3-sand" name="pass" ng-model="pass" type="password">
+            </p>
+            <p>
+                <button class="w3-btn w3-green w3-large">save</button>
+                <button class="w3-btn w3-red w3-large" ng-click="reset_profile()">Reset</button>
+            </p>
+        </div>
+    </div>
+</div>

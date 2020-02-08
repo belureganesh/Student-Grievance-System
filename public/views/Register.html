@@ -1,0 +1,115 @@
+<div ng-controller="register_ctrl" id="Register" class="tabcontent">
+                                <form action="" name="form" method="" id="register-form" >
+
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-12 form-group">
+                                                <label>Full Name</label>
+                                                <input type="text" ng-model="fName" name="fname" tabindex="1"  placeholder="Enter Full Name Here.." class="form-control" ng-required="true">
+                                                <span ng-show="form.fname.$touched && form.fname.$error.required" style="color:red;font-size:18px;">Full name is required.</span>
+
+                                            </div>
+
+                                        </div>	
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <label>Date Of Birth</label>
+                                                <input type="date" ng-model="dob" name="DOB" id="Dob" tabindex="6" class="form-control" placeholder="DOB" value="" ng-required="true">
+                                                <span style="color:red;font-size:18px;" ng-show="form.DOB.$touched && form.DOB.$error.required">Date of birth is required.</span>
+                                            </div>
+
+                                            <div class="col-sm-6 form-group">
+                                                <label>Mobile No</label>
+                                                <input type="text" ng-model="mob_no" name="Mobile_No" id="Mobile_No" tabindex="7" class="form-control" placeholder="Mobile No" value="" ng-required="true">
+                                                <span ng-show="form.Mobile_No.$touched && form.Mobile_No.$error.required" style="color:red;font-size:18px;">Mobile no is required.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <label>Branch</label>
+                                                <select id="Branch" ng-model="branch" name="Branch"  tabindex="8" class="form-control" ng-required="true">
+                                                    <option value="">--select branch--</option>
+                                                    <option value="6">Information Technology</option>
+                                                    <option value="3">Computer Engineering</option>
+                                                    <option value="1">Chemical Engineering</option>
+                                                    <option value="8">Petrochemical Engineering</option>
+                                                    <option value="4">Electrical Engineering</option>
+                                                    <option value="5">Electronics and Telecommunication Engineering</option>
+                                                    <option value="7">Mechanical Engineering</option>
+                                                    <option value="2">Civil Engineering</option>
+                                                    </select>
+                                                <span ng-show="form.Branch.$touched && form.Branch.$error.required" style="color:red;font-size:18px;">
+                                                    Please select your branch.
+                                                </span>
+
+<!--                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">-->
+                                            </div>
+                                            <div class="col-sm-6 form-group">
+                                                <label>Year</label>
+                                                <select id="year" ng-model="year" name="year"  tabindex="9" class="form-control" ng-required="true">
+                                                    <option value="">--select year--</option>
+                                                    <option value=First>First</option>
+                                                    <option value=Second>Second</option>
+                                                    <option value=Third>Third</option>
+                                                    <option value=Fourth>Fourth</option>
+
+                                                </select>
+                                                <span ng-show="form.year.$touched && form.year.$error.required" style="color:red;font-size:18px;">
+                                                    Select your respective Year.</span>
+
+                                                <!--                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">-->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <label>Email</label>
+                                                <input type="email" id="mail" ng-model="mail" name="mail" tabindex="10"  placeholder="Enter email Here.." class="form-control" required>
+                                                <span style="color:red;font-size:18px;" ng-show="form.mail.$dirty && form.mail.$invalid">
+                                                <span ng-show="form.mail.$error.required" style="color:red;font-size:18px;">Email is required.</span>
+                                                <span ng-show="form.mail.$error.email" style="color:red;font-size:18px;">Invalid email address.</span>
+                                                </span>
+                                            </div>
+                                            <div class="col-sm-6 form-group">
+                                                <label>user Id</label>
+                                                <input type="number" ng-model="userId" name="userId" tabindex="11"
+                                                       placeholder="Enter userId Here.." class="form-control" required>
+                                                <span style="color:red;font-size:18px;" ng-show="form.userId.$touched && form.userId.$error.required">
+                                                    userid is required and it should be your roll no.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6 form-group">
+                                                <label>password</label>
+                                                <input type="password" ng-model="password" ng-pattern="/(?=.*[A-Z])\w{4,15}/" name="password"
+                                                       id="password" tabindex="12" class="form-control" placeholder="Password" required>
+                                                <span ng-show="form.password.$touched && form.password.$error.pattern" style="color:red;font-size:18px;">
+                                                    password should be between 4 to 15 charecter alpha numeric with at least one uppercase letter.</span>
+                                            </div>
+
+                                            <div class="col-sm-6 form-group">
+                                                <label>Confirm password</label>
+                                                <input type="password" ng-keyup="checker()" ng-model="confirm_password" name="confirm_password" id="confirm-password" tabindex="12" class="form-control" placeholder="Confirm Password" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" ng-disabled="form.$invalid && block" ng-click="register_submit()" name="register-submit" id="register-submit" tabindex="13" class="form-control btn btn-register" value="Register Now">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                         

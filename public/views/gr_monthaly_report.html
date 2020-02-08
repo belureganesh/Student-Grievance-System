@@ -1,0 +1,36 @@
+<br>
+<div class="w3-container ">
+<div class="w3-container w3-teal w3-padding-16">
+   <span class="w3-bar-item"> <header class="w3-center">Monthaly Report</header>
+    <select style="width:30%" class="w3-select w3-sand w3-border w3-right" name="month" ng-model="month" required>
+        <option value="">--Select Month--</option>
+        <option>January</option>
+        <option>February</option>
+        <option>March</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>Octomer</option>
+        <option>November</option>
+        <option>December</option>
+    </select>
+</div>
+    <table class="w3-table-all">
+        <thead>
+        <tr class=" w3-text-deep-orange" style="background-color:#FFB6C1;color:orange;font-size: 17px;">
+            <th>Pending Grievance</th>
+            <th>Under process Grievance</th>
+            <th>Resolved Grievance</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="s1 in cell_replied_table_data|filter:search1">
+            <td>{{s1.grievance_details_id}}</td>
+            <td>{{s1.gtype}}</td>
+            <td>{{s1.grievance_u_date | date:"mediumDate"}}</td>
+            <td>{{s1.grievance_status}}</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,14 @@
+int linear_search(int arr[],int size,int key)
+{
+    for(int i=0;i<size;i++){
+        if(arr[i]==key)
+        return i;
+    }
+    return -1;
+}
+int main()
+{
+    int a[]={45,39,22,30,18,24};
+    int result=0;
+    result=linear_search(a,sizeof(a)/sizeof(int),22);
+}

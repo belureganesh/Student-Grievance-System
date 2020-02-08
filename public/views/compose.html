@@ -1,0 +1,83 @@
+<br>
+<body ng-controller="compose">
+<div class="w3-card-4" >
+    <div class="w3-container w3-teal">
+        <h2 class="w3-container">Add Your Grievance</h2>
+    </div>
+<form name="form" id="register-form">
+
+        <fieldset>
+            <legend class="w3-text-teal">Grievance Type</legend>
+            <label class="w3-text-brown"><b>Department</b></label>
+            <select class="w3-select w3-sand w3-border" name="G_department" ng-model="G_department"
+                    ng-change="G_dept_fun()" required>
+                <option value="">--select Department--</option>
+                <option ng-repeat="x in c_data">{{x.dept_name}}</option>
+            </select>
+            <span ng-show="form.G_department.$touched && form.G_department.$error.required" style="color:red;font-size:18px;">Please select your department.</span>
+
+            <label class="w3-text-brown"><b>Select Grievance</b></label>
+
+            <select class="w3-select w3-border w3-sand" name="G_type" ng-model="G_type"
+                    ng-change="G_type_fun(G_type)" required>
+                <option value="">--select Type--</option>
+                <option ng-repeat="y in G_type_data[0]">{{y.gtype}}</option>
+                <option>others</option>
+            </select>
+            <br>
+            <span ng-show="form.G_type.$touched && form.G_type.$error.required" style="color:red;font-size:18px;">Please select your grievance type.</span>
+
+            <input ng-hide="isnotother" type="text" class="w3-select w3-sand w3-border"
+                   name="Gri_type" ng-model="Gri_type" placeholder="Grivance Type">
+
+            <span ng-show="form.Gri_type.$touched && form.Gri_type.$error.required" style="color:red;font-size:18px;">Grievance type is required.</span>
+
+        </fieldset>
+    <fieldset ng-hide="isvisible">
+        <legend class="w3-text-teal">Grievance To</legend>
+
+
+        <label class="w3-text-brown"><b>Authority:</b></label> {{G_type_data[1][0].desig_name}} ({{G_type_data[2]}})
+        <br>
+        <label class="w3-text-brown"><b>Name:</b></label> {{G_type_data[1][0].cell_member_name}}
+    </fieldset>
+
+        <fieldset>
+        <legend class="w3-text-teal">Grievance Related To</legend>
+            <label class="w3-text-brown"><b>Name:</b></label>
+            <input type="text" class="w3-select w3-sand w3-border" name="G_Rto_name" ng-model="G_Rto_name">
+        </fieldset>
+       <fieldset>
+
+           <legend class="w3-text-teal">Grievance description</legend>
+           <textarea class="w3-border w3-sand" ng-model="G_description" name="G_description"
+                     ng-keyup="count = count -1" ng-init="count=300"   ng-maxlength="400" ng-minlength="10" cols="135" placeholder="Add your grievance here.." rows="6" required>
+           </textarea>
+           <span style="color:red;font-size:20px;">{{count}}  charecter is remaining.</span>
+           <span ng-show="form.G_description.$touched && form.G_description.$error.minlength"
+                 style="color:red;font-size:18px;">Maximum 400 charecter is allowed.</span>
+
+
+           <span ng-show="form.G_description.$touched && form.G_description.$error.required"
+                 style="color:red;font-size:18px;">Please add grievance description.</span>
+
+       </fieldset>
+
+    <fieldset>
+         <legend class="w3-text-teal">Upload Document</legend>
+        <input type="file" onchange="angular.element(this).scope().setFile(this)" file-model="myFile">
+        {{file_status}}<br>
+        {{filename}}<br>
+        {{FileMessage}}
+        <input type="button" ng-click="uploadFile()" class="w3-btn w3-text-amber w3-green" ng-disabled="notpdf" value="Upload">
+        <input type="button" ng-click="view_docs()"  class="w3-btn w3-text-amber w3-teal" ng-disabled="issubmit" value="view">
+        <input type="button" ng-click="delete_docs()"  class="w3-btn w3-text-amber w3-teal" ng-disabled="issubmit" value="Delete">
+        <br>
+        <input type="submit" ng-click="submitData()" class="w3-btn w3-green" ng-disabled="form.$invalid" value="Submit">
+    </fieldset>
+
+
+
+</form>
+</div>
+</body>

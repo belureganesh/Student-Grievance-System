@@ -1,0 +1,29 @@
+<br>
+<div class="w3-container">
+    <div class="w3-container w3-teal w3-padding">
+        <input placeholder="search your grievance...."
+               ng-model="search1" class="w3-input  w3-border w3-sand"
+               style="width:50%" name="first" type="text">
+    </div>
+    <span class="w3-center w3-pale-green">
+
+    <table class="w3-table-all">
+        <thead>
+        <tr class="w3-teal">
+            <th>Grievance ID</th>
+            <th>Grievance TO</th>
+            <th>Grievance Type</th>
+            <th>Grievance Date</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="s in student_applied_gr|filter:search1">
+            <td>{{s.grievance_details_id}}</button></td>
+            <td>{{s.cell_member_name}}</td>
+            <td>{{s.gtype}}</td>
+            <td>{{s.grievance_u_date | date:"mediumDate"}}</td>
+
+
+            </tr>
+    </table>
+</span>
+</div>
